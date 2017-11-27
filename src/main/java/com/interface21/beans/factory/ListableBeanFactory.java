@@ -25,14 +25,14 @@ package com.interface21.beans.factory;
 public interface ListableBeanFactory extends BeanFactory {
 
 	/**
-	 * Return the number of com.interface21.beans defined in the factory
-	 * @return the number of com.interface21.beans defined in the factory
+	 * Return the number of com.interface21.beans defined in the com.hhx.beans.factory
+	 * @return the number of com.interface21.beans defined in the com.hhx.beans.factory
 	 */
 	int getBeanDefinitionCount();
 
 	/**
-	 * Return the names of all com.interface21.beans defined in this factory
-	 * @return the names of all com.interface21.beans defined in this factory.
+	 * Return the names of all com.interface21.beans defined in this com.hhx.beans.factory
+	 * @return the names of all com.interface21.beans defined in this com.hhx.beans.factory.
 	 * Returns the empty String[], rather than null, if no com.interface21.beans are defined.
 	 */
 	String[] getBeanDefinitionNames();

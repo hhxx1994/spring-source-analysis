@@ -112,7 +112,7 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 	/**
 	 * Creates new XmlBeanFactory using java.io to read the XML document with the given filename
 	 * @param filename name of the file containing the XML document
-	 * @param parentBeanFactory parent bean factory
+	 * @param parentBeanFactory parent bean com.hhx.beans.factory
 	 */
 	public XmlBeanFactory(String filename, BeanFactory parentBeanFactory) throws BeansException {
 		super(parentBeanFactory);
@@ -137,7 +137,7 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 	 * Create a new XmlBeanFactory with the given input stream,
 	 * which must be parsable using DOM.
 	 * @param is InputStream containing XML
-	 * @param parentBeanFactory parent bean factory
+	 * @param parentBeanFactory parent bean com.hhx.beans.factory
 	 * @throws BeansException
 	 */
 	public XmlBeanFactory(InputStream is, BeanFactory parentBeanFactory) throws BeansException {
@@ -158,7 +158,7 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 	/**
 	 * Creates new XmlBeanFactory from a DOM document
 	 * @param doc DOM document, already parsed
-	 * @param parentBeanFactory parent bean factory
+	 * @param parentBeanFactory parent bean com.hhx.beans.factory
 	 */
 	public XmlBeanFactory(Document doc, BeanFactory parentBeanFactory) throws BeansException {
 		super(parentBeanFactory);
@@ -350,10 +350,10 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 
 	private Object parsePropertySubelement(Element ele) {
 		if (ele.getTagName().equals(REF_ELEMENT)) {
-			// a reference to another bean in this factory?
+			// a reference to another bean in this com.hhx.beans.factory?
 			String beanName = ele.getAttribute(BEAN_REF_ATTRIBUTE);
 			if ("".equals(beanName)) {
-				// a reference to an external bean (in a parent factory)?
+				// a reference to an external bean (in a parent com.hhx.beans.factory)?
 				beanName = ele.getAttribute(EXTERNAL_REF_ATTRIBUTE);
 				if ("".equals(beanName)) {
 					throw new FatalBeanException("Either 'bean' or 'external' is required for a reference");

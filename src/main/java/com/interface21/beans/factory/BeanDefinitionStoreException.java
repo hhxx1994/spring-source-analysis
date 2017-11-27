@@ -14,7 +14,7 @@ public class BeanDefinitionStoreException extends BeansException {
     /**
     * Constructs a <code>BeanDefinitionStoreException</code> with the specified detail message.
      * @param msg the detail message.
-     * @param t the root cause of the problem with the factory.
+     * @param t the root cause of the problem with the com.hhx.beans.factory.
      */
     public BeanDefinitionStoreException(String msg,Throwable t) {
         super(msg, t);

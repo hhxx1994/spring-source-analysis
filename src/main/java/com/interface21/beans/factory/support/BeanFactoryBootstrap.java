@@ -56,7 +56,7 @@ public class BeanFactoryBootstrap {
 	// ALSO NEED TO TEST WITH REAL SYSTEM PROPERTIES...
 	
 	/**
-	 * Apply rules to load factory
+	 * Apply rules to load com.hhx.beans.factory
 	 */
 	private BeanFactoryBootstrap() throws BeansException {
 		
@@ -67,13 +67,13 @@ public class BeanFactoryBootstrap {
 			this.bootstrapFactory = (BeanFactory) startupFactory.getBean(BEAN_FACTORY_BEAN_NAME);
 		}
 		catch (ClassCastException ex) {
-			throw new BootstrapException("Bootstrap bean factory class does not implement BeanFactory interface", ex);
+			throw new BootstrapException("Bootstrap bean com.hhx.beans.factory class does not implement BeanFactory interface", ex);
 		}
 		catch (NoSuchBeanDefinitionException ex) {
 			throw new BootstrapException("No bean named '" + BEAN_FACTORY_BEAN_NAME + "' in system properties: [" + startupFactory + "]", null);
 		}
 		catch (BeansException ex) {
-			throw new BootstrapException("Failed to bootstrap bean factory", ex);
+			throw new BootstrapException("Failed to bootstrap bean com.hhx.beans.factory", ex);
 		}
 	}
 	

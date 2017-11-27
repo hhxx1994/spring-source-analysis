@@ -18,14 +18,14 @@ public interface Lifecycle {
 	
 	/**
 	 * Lifecycle callback com.interface21.beans used in a BeanFactory can
-	 * implement to receive callbacks exposing the factory itself.
-	 * This enables them to obtain other com.interface21.beans from the factory.
+	 * implement to receive callbacks exposing the com.hhx.beans.factory itself.
+	 * This enables them to obtain other com.interface21.beans from the com.hhx.beans.factory.
 	 * <br>
 	 * If the bean also implements InitializingBean, Lifecycle methods 
 	 * will be invoked after the <code>afterPropertiesSet</code>
 	 * method.
 	 * @param beanFactory owning BeanFactory. May not be null.
-	 * The bean can immediately call methods on the factory.
+	 * The bean can immediately call methods on the com.hhx.beans.factory.
 	 * @throws Exception this method can throw any exception. Normally
 	 * we want methods to declare more precise exceptions, but
 	 * in this case the owning BeanFactory will catch and handle the

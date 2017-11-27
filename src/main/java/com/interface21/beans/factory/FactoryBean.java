@@ -11,7 +11,7 @@ import com.interface21.beans.PropertyValues;
 /**
  * Interface to be implemented by objects used within a 
  * BeanFactory that are themselves factories. If a
- * bean implements this interface, it is used as a factory,
+ * bean implements this interface, it is used as a com.hhx.beans.factory,
  * not directly as a bean. 
  * <br>
  * <b>NB: a bean that implements this interface cannot be
@@ -26,7 +26,7 @@ public interface FactoryBean {
 
 	/** 
 	 * Return an instance (possibly shared or independent) of the object
-	 * managed by this factory.
+	 * managed by this com.hhx.beans.factory.
 	 * As with a BeanFactory, this allows support for both
 	 * the Singleton and Prototype design pattern.
 	 * @return an instance of the bean
@@ -35,7 +35,7 @@ public interface FactoryBean {
 	
 	
 	/**
-	 * Is the bean managed by this factory a singleton
+	 * Is the bean managed by this com.hhx.beans.factory a singleton
 	 * or a prototype? That is, will getBean() always
 	 * return the same object?
 	 * <br>The singleton status of a FactoryBean will generally
@@ -46,9 +46,9 @@ public interface FactoryBean {
 	
 	/**
 	 * Property values to pass to new bean instances created
-	 * by this factory. Mapped directly onto the bean instance using 
+	 * by this com.hhx.beans.factory. Mapped directly onto the bean instance using
 	 * reflection. This occurs <i>after</i> any configuration of the
-	 * instance performed by the factory itself, and is an
+	 * instance performed by the com.hhx.beans.factory itself, and is an
 	 * optional step within the control of the owning BeanFactory.
 	 * @return PropertyValues to pass to each new instance,
 	 * or null (the default) if there are no properties to 

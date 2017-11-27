@@ -34,10 +34,10 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
 	/**
 	 * Used to dereference a FactoryBean and distinguish it from
-	 * com.interface21.beans <i>created</i> by the factory. For example,
-	 * if the bean named <code>myEjb</code> is a factory, getting
-	 * <code>&myEjb</code> will return the factory, not the instance
-	 * returned by the factory.
+	 * com.interface21.beans <i>created</i> by the com.hhx.beans.factory. For example,
+	 * if the bean named <code>myEjb</code> is a com.hhx.beans.factory, getting
+	 * <code>&myEjb</code> will return the com.hhx.beans.factory, not the instance
+	 * returned by the com.hhx.beans.factory.
 	 */
 	public static final String FACTORY_BEAN_PREFIX = "&";
 
@@ -46,7 +46,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	// Instance data
 	//---------------------------------------------------------------------
 
-	/** parent bean factory, for bean inheritance support */
+	/** parent bean com.hhx.beans.factory, for bean inheritance support */
 	private BeanFactory parentBeanFactory;
 
 	/** Cache of shared instances. bean name --> bean instanced */
@@ -74,7 +74,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
 	/**
 	 * Creates a new AbstractBeanFactory, with the given parent.
-	 * @param parentBeanFactory  the parent bean factory, or null if none
+	 * @param parentBeanFactory  the parent bean com.hhx.beans.factory, or null if none
 	 * @see #getBean
 	 */
 	public AbstractBeanFactory(BeanFactory parentBeanFactory) {
@@ -82,7 +82,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	}
 
 	/**
-	 * Returns the parent bean factory, or null if none.
+	 * Returns the parent bean com.hhx.beans.factory, or null if none.
 	 */
 	public BeanFactory getParentBeanFactory() {
 		return parentBeanFactory;
@@ -112,7 +112,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	}
 
 	/**
-	 * Return the bean name, stripping out the factory deference prefix if necessary,
+	 * Return the bean name, stripping out the com.hhx.beans.factory deference prefix if necessary,
 	 * and resolving aliases to canonical names.
 	 */
 	private String transformedBeanName(String name) {
@@ -125,8 +125,8 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	}
 
 	/**
-	 * Return whether this name is a factory dereference (beginning
-	 * with the factory dereference prefix)
+	 * Return whether this name is a com.hhx.beans.factory dereference (beginning
+	 * with the com.hhx.beans.factory dereference prefix)
 	 */
 	private boolean isFactoryDereference(String name) {
 		return name.startsWith(FACTORY_BEAN_PREFIX);
@@ -138,7 +138,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	 * method is synchronized here.
 	 * TODO: there probably isn't any need for this to be
 	 * synchronized, at least not if we pre-instantiate singletons.
-	 * @param pname name that may include factory dereference prefix
+	 * @param pname name that may include com.hhx.beans.factory dereference prefix
 	 * @param newlyCreatedBeans cache with newly created com.interface21.beans (name, instance)
 	 * if triggered by the creation of another bean, or null else
 	 * (necessary to resolve circular references)
@@ -162,7 +162,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 		}
 
 		// Don't let calling code try to dereference the
-		// bean factory if the bean isn't a factory
+		// bean com.hhx.beans.factory if the bean isn't a com.hhx.beans.factory
 		if (isFactoryDereference(pname) && !(beanInstance instanceof FactoryBean)) {
 			throw new BeanIsNotAFactoryException(name, beanInstance);
 		}
@@ -170,12 +170,12 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 		// Now we have the beanInstance, which may be a normal bean
 		// or a FactoryBean. If it's a FactoryBean, we use it to
 		// create a bean instance, unless the caller actually wants
-		// a reference to the factory.
+		// a reference to the com.hhx.beans.factory.
 		if (beanInstance instanceof FactoryBean) {
 			if (!isFactoryDereference(pname)) {
-				// Configure and return new bean instance from factory
+				// Configure and return new bean instance from com.hhx.beans.factory
 				FactoryBean factory = (FactoryBean) beanInstance;
-				logger.debug("Bean with name '" + name + "' is a factory bean");
+				logger.debug("Bean with name '" + name + "' is a com.hhx.beans.factory bean");
 				beanInstance = factory.getObject();
 
 				// Set pass-through properties
@@ -183,21 +183,21 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 					logger.debug("Applying pass-through properties to bean with name '" + name + "'");
 					new BeanWrapperImpl(beanInstance).setPropertyValues(factory.getPropertyValues());
 				}
-				// Initialization is really up to factory
+				// Initialization is really up to com.hhx.beans.factory
 				//invokeInitializerIfNecessary(beanInstance);
 			}
 			else {
-				// The user wants the factory itself
+				// The user wants the com.hhx.beans.factory itself
 				logger.debug("Calling code asked for BeanFactory instance for name '" + name + "'");
 			}
-		}	// if we're dealing with a factory bean
+		}	// if we're dealing with a com.hhx.beans.factory bean
 
 		return beanInstance;
 	}
 
 	/**
 	 * Return the bean with the given name,
-	 * checking the parent bean factory if not found.
+	 * checking the parent bean com.hhx.beans.factory if not found.
 	 * @param name name of the bean to retrieve
 	 */
 	public final Object getBean(String name) {
@@ -206,7 +206,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
 	/**
 	 * Return the bean with the given name,
-	 * checking the parent bean factory if not found.
+	 * checking the parent bean com.hhx.beans.factory if not found.
 	 * @param name name of the bean to retrieve
 	 * @param newlyCreatedBeans cache with newly created com.interface21.beans (name, instance)
 	 * if triggered by the creation of another bean, or null else
@@ -297,7 +297,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
 	/**
 	 * Apply the given property values, resolving any runtime references
-	 * to other com.interface21.beans in this bean factory.
+	 * to other com.interface21.beans in this bean com.hhx.beans.factory.
 	 * Must use deep copy, so we don't permanently modify this property
 	 * @param bw BeanWrapper wrapping the target object
 	 * @param pvs new property values
@@ -331,7 +331,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
 	/**
 	 * Given a PropertyValue, return a value, resolving any references to other
-	 * com.interface21.beans in the factory if necessary. The value could be:
+	 * com.interface21.beans in the com.hhx.beans.factory if necessary. The value could be:
 	 * <li>An ordinary object or null, in which case it's left alone
 	 * <li>A RuntimeBeanReference, which must be resolved
 	 * <li>A ManagedList. This is a special collection that may contain
@@ -412,7 +412,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	}
 	
 	/**
-	 * Resolve a reference to another bean in the factory
+	 * Resolve a reference to another bean in the com.hhx.beans.factory
 	 */
 	private Object resolveReference(String name, RuntimeBeanReference ref, Map newlyCreatedBeans) {
 		try {
@@ -429,11 +429,11 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
 	/**
 	 * Give a bean a chance to react now all its properties are set,
-	 * and a chance to know about its owning bean factory (this object).
+	 * and a chance to know about its owning bean com.hhx.beans.factory (this object).
 	 * This means checking whether the bean implements InitializingBean
 	 * and/or Lifecycle, and invoking the necessary callback(s) if it does.
 	 * @param bean new bean instance we may need to initialize
-	 * @param name the bean has in the factory. Used for debug output.
+	 * @param name the bean has in the com.hhx.beans.factory. Used for debug output.
 	 */
 	private void callLifecycleMethodsIfNecessary(Object bean, String name) throws BeansException {
 		if (bean instanceof InitializingBean) {

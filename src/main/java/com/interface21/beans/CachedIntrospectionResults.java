@@ -20,7 +20,7 @@ import org.apache.commons.logging.LogFactory;
  * <br/>Package-visible; not used by application code.
  * <br/>Information is cached statically, so we don't need to create new objects
  * of this class for every JavaBean we manipulate. Thus this class
- * implements the factory design pattern, using a private constructor 
+ * implements the com.hhx.beans.factory design pattern, using a private constructor
  * and a public static forClass() method to obtain instances.
  * @author  Rod Johnson
  * @since 05 May 2001

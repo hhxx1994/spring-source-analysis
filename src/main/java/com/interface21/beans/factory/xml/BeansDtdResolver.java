@@ -15,7 +15,7 @@ public class BeansDtdResolver implements EntityResolver {
 
 	private static final String DTD_NAME = "spring-com.interface21.beans";
 
-	private static final String SEARCH_PACKAGE = "/com/interface21/com.interface21.beans/factory/xml/";
+	private static final String SEARCH_PACKAGE = "/com/interface21/com.interface21.beans/com.hhx.beans.factory/xml/";
 
 	private Log log = LogFactory.getLog(getClass());
 

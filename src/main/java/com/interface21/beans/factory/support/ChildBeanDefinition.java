@@ -29,9 +29,9 @@ public class ChildBeanDefinition extends AbstractBeanDefinition {
 
 	/**
 	 * Return the name of the parent bean definition in
-	 * the current bean factory.
+	 * the current bean com.hhx.beans.factory.
 	 * @return the name of the parent bean definition in
-	 * the current bean factory
+	 * the current bean com.hhx.beans.factory
 	 */
 	public String getParentName() {
 		return parentName;

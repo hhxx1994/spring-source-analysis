@@ -17,7 +17,7 @@ import com.interface21.beans.BeansException;
  * instance of any of these objects can be obtained (the Prototype
  * design pattern), or a single shared instance can be obtained 
  * (a superior alternative to the Singleton design pattern). Which type of instance
- * will be returned depends on the bean factory configuration--the API is
+ * will be returned depends on the bean com.hhx.beans.factory configuration--the API is
  * the same. The Singleton approach is much more useful and more common in practice.
  * <p/>The point of this approach is that the BeanFactory is a central
  * registry of application components, and centralizes the configuring
@@ -40,7 +40,7 @@ public interface BeanFactory {
 
 	/** 
 	 * Return an instance (possibly shared or independent) of the given bean name.
-	 * This method allows a bean factory to be used as a replacement for
+	 * This method allows a bean com.hhx.beans.factory to be used as a replacement for
 	 * the Singleton or Prototype design pattern.
 	 * <br/>Note that callers should retain references to returned objects. There is
 	 * no guarantee that this method will be implemented to be efficient. For example,
@@ -55,7 +55,7 @@ public interface BeanFactory {
 	 * Return an instance (possibly shared or independent) of the given bean name.
 	 * Provides a measure of type safety by throwing an exception if the bean is not
 	 * of the required type.
-	 * This method allows a bean factory to be used as a replacement for
+	 * This method allows a bean com.hhx.beans.factory to be used as a replacement for
 	 * the Singleton or Prototype design pattern.
 	 * <br/>Note that callers should retain references to returned objects. There is
 	 * no guarantee that this method will be implemented to be efficient. For example,

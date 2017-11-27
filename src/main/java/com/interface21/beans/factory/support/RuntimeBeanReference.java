@@ -3,7 +3,7 @@ package com.interface21.beans.factory.support;
 /** 
 * Immutable placeholder class used for the value of a PropertyValue
 * object when it's a reference to another bean in this
-* factory to be resolved at runtime.
+* com.hhx.beans.factory to be resolved at runtime.
 * @author Rod Johnson
 */
 public class RuntimeBeanReference {

@@ -22,7 +22,7 @@ public abstract class AbstractFactoryBean implements FactoryBean {
 
 	/**
 	 * PropertyValues, if any, to be passed through and applied
-	 * to new instances created by the factory. If this is null 
+	 * to new instances created by the com.hhx.beans.factory. If this is null
 	 * (the default) no properties are set on the new instance.
 	 */
 	private PropertyValues pvs;
@@ -42,7 +42,7 @@ public abstract class AbstractFactoryBean implements FactoryBean {
 
 	/**
 	 * Sets the PropertyValues, if any, to pass through to
-	 * bean instances created by this factory.
+	 * bean instances created by this com.hhx.beans.factory.
 	 * @param pvs The pvs to set
 	 */
 	public void setPropertyValues(PropertyValues pvs) {

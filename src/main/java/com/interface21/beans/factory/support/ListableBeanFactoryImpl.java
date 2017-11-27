@@ -24,10 +24,10 @@ import java.util.Set;
 
 /**
  * Concrete implementation of ListableBeanFactory.
- * Includes convenient methods to populate the factory from a Map
+ * Includes convenient methods to populate the com.hhx.beans.factory from a Map
  * and a ResourceBundle, and to add bean defintions one by one.
  *
- * <p>Can be used as a standalone bean factory,
+ * <p>Can be used as a standalone bean com.hhx.beans.factory,
  * or as a superclass for custom bean factories.
  *
  * @author Rod Johnson
@@ -102,9 +102,9 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 	}
 
 	/**
-	 * Set the default parent bean for this bean factory.
+	 * Set the default parent bean for this bean com.hhx.beans.factory.
 	 * If a child bean definition (i.e. a definition without class
-	 * attribute) handled by this factory doesn't provide a parent
+	 * attribute) handled by this com.hhx.beans.factory doesn't provide a parent
 	 * attribute, this default value gets used.
 	 * <p>Can be used e.g. for view definition files, to define a
 	 * parent with common attributes for all views.
@@ -114,7 +114,7 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 	}
 
 	/**
-	 * Return the default parent bean for this bean factory.
+	 * Return the default parent bean for this bean com.hhx.beans.factory.
 	 */
 	public String getDefaultParentBean() {
 		return defaultParentBean;
@@ -263,7 +263,7 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 	
 	/**
 	 * Get all property values, given a prefix (which will be stripped)
-	 * and add the bean they define to the factory with the given name
+	 * and add the bean they define to the com.hhx.beans.factory with the given name
 	 * @param beanName name of the bean to define
 	 * @param m Map containing string pairs
 	 * @param prefix prefix of each entry, which will be stripped
