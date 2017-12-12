@@ -292,6 +292,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 		newlyCreatedBeans.put(name, instanceWrapper.getWrappedInstance());
 		PropertyValues pvs = bd.getPropertyValues();
 		applyPropertyValues(instanceWrapper, pvs, name, newlyCreatedBeans);
+
 		return instanceWrapper;
 	}
 

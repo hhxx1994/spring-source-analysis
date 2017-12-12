@@ -17,8 +17,10 @@ public class BeanFactoryTest {
         InputStream inputStream = BeanFactoryTest.class.getClassLoader()
             .getResourceAsStream("tinyioc.xml");
         XmlBeanFactory xmlBeanFactory = new XmlBeanFactory(inputStream);
-        HelloWorldService helloWorldService = (HelloWorldService) xmlBeanFactory.getBean("helloWorldService");
-        helloWorldService.helloWorld();
+//        HelloWorldService helloWorldService = (HelloWorldService) xmlBeanFactory.getBean("helloWorldService");
+//        helloWorldService.helloWorld();
+        FloatService floatService = (FloatService) xmlBeanFactory.getBean("floatService");
+        floatService.print();
 
     }
 

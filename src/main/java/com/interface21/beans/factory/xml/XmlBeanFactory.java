@@ -191,7 +191,9 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 			logger.debug("Using JAXP implementation [" + factory + "]");
 			factory.setValidating(true);
 			DocumentBuilder db = factory.newDocumentBuilder();
+			//验证xml
 			db.setErrorHandler(new BeansErrorHandler());
+			//验证DTD
 			db.setEntityResolver(new BeansDtdResolver());
 			Document doc = db.parse(is);
 			loadBeanDefinitions(doc);
@@ -230,7 +232,7 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 			loadBeanDefinition((Element) n);
 		}
 
-		// Ask superclass to eagerly instantiate singletons
+		// Ask superclass to eagerly instantiate singletons 饿加载
 		preInstantiateSingletons();
 	}
 
@@ -249,6 +251,7 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 		registerBeanDefinition(id, beanDefinition);
 
 		String name = el.getAttribute(NAME_ATTRIBUTE);
+		//设置别名 name
 		if (name != null && !"".equals(name)) {
 			// Automatically create this alias. Used for
 			// names that aren't legal in id attributes
@@ -442,6 +445,7 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 	/**
 	 * Private implementation of SAX ErrorHandler used when validating XML.
 	 */
+	// TODO 验证xml
 	private class BeansErrorHandler implements ErrorHandler {
 
 		public void error(SAXParseException e) throws SAXException {

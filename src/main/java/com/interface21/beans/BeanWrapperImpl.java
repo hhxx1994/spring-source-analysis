@@ -96,9 +96,13 @@ public class BeanWrapperImpl implements BeanWrapper {
 		// use the thread context class loader for property editor lookup
 		defaultEditors.put(String[].class, new StringArrayPropertyEditor());
 		defaultEditors.put(PropertyValues.class, new PropertyValuesEditor());
+
 		defaultEditors.put(Properties.class, new PropertiesEditor());
 		defaultEditors.put(Class.class, new ClassEditor());
 		defaultEditors.put(Locale.class, new LocaleEditor());
+
+
+
 	}
 
 
@@ -128,6 +132,7 @@ public class BeanWrapperImpl implements BeanWrapper {
 	private Map nestedBeanWrappers;
 
 	/** Map with custom PropertyEditor instances */
+	//TODO 设置属性编辑器
 	private Map customEditors;
 
 

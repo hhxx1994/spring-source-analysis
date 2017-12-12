@@ -39,8 +39,7 @@ public class PropertiesEditor extends PropertyEditorSupport {
 		if (s == null)
 			throw new IllegalArgumentException("Cannot set properties to null");
 	
-		Properties props =
-			load(s); 
+		Properties props = load(s);
 			//parse(s);
 		setValue(props);
 	}
