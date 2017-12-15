@@ -9,9 +9,14 @@
     </property>
   </bean>-->
 
-  <bean id="floatService" class="com.hhx.beans.factory.FloatServiceImpl">
-    <property name="value" >
-      <value>1.5</value>
+  <bean id="floatService" name="fs" class="com.hhx.beans.factory.FloatServiceImpl" >
+    <property name="user">
+      <ref bean="user"/>
+    </property>
+  </bean>
+  <bean id="user"  class="com.hhx.beans.factory.User" >
+    <property name="name">
+      <value>hhx</value>
     </property>
   </bean>
 

@@ -482,7 +482,7 @@ public class BeanWrapperImpl implements BeanWrapper {
 	 * @throws BeansException if there's a low-level, fatal error
 	 */
 	public void setPropertyValue(PropertyValue pv) throws PropertyVetoException, BeansException {
-
+		//处理级联
 		if (isNestedProperty(pv.getName())) {
 			try {
 				BeanWrapper nestedBw = getBeanWrapperForNestedProperty(pv.getName());

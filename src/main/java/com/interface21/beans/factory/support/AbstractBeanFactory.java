@@ -116,6 +116,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	 * and resolving aliases to canonical names.
 	 */
 	private String transformedBeanName(String name) {
+		//想要获取factory 在id中以&为前缀 ，否则factory 调用getObject
 		if (name.startsWith(FACTORY_BEAN_PREFIX)) {
 			name = name.substring(FACTORY_BEAN_PREFIX.length());
 		}
