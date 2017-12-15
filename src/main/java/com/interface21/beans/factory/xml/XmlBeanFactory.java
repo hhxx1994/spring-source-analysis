@@ -248,6 +248,7 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 
 		PropertyValues pvs = getPropertyValueSubElements(el);
 		beanDefinition = parseBeanDefinition(el, id, pvs);
+		//放入map中 id --> BeanDefinition
 		registerBeanDefinition(id, beanDefinition);
 
 		String name = el.getAttribute(NAME_ATTRIBUTE);
